@@ -1,16 +1,20 @@
 const express = require('express');
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
-
 const PORT = 8888;
 
+app.use(express.urlencoded({ extended: true }));
+// set view engine
+app.set('view engine', 'hbs');
+
 app.get('/', (request, response) => {
-  response.send('Hello Express');
+  console.log(request.query); // for query parameter ?q=xxx
+  const { q, sortedBy } = request.query;
+  response.render('home', { q, sortedBy });
 });
 
 app.get('/q/new', (request, response) => {
-  response.send('New Question Form');
+  response.render('questionNew');
 });
 
 app.post('/q/new', (request, response) => {
@@ -21,7 +25,8 @@ app.post('/q/new', (request, response) => {
 
 app.get('/q/:questionId', (request, response) => {
   console.log(request.params);
-  response.send(`Question Page -> questionId: ${request.params.questionId}`);
+  const { questionId } = request.params;
+  response.render('question', { questionId });
 });
 
 app.listen(PORT, () => {
