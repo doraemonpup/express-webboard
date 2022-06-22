@@ -1,11 +1,18 @@
 <html lang='en'>
-  {{> baseHead customTitle='Cute <3 | '}}
+  {{> baseHead customTitle=customTitle}}
   <body>
     {{> siteHeader}}
-    <div>
-      <h2>How do you do..</h2>
-      <p>Love me, love my dogs</p>
-    </div>
+    {{#if oneQuestion}}
+      <div style="background-color: rgb(241, 209, 209)">
+        <h2>{{oneQuestion.title}}</h2>
+        <p>
+          <span>{{oneQuestion.from}} | </span>
+          <span>{{oneQuestion.createdAtText}}</span>
+        </p>
+      </div>
+    {{else}}
+      <p>Question not found...</p>
+    {{/if}}
     {{> siteFooter}}
   </body>
 </html>
