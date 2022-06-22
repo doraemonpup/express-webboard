@@ -1,4 +1,5 @@
 const express = require('express');
+const hbs = require('hbs');
 const app = express();
 
 const PORT = 8888;
@@ -6,6 +7,7 @@ const PORT = 8888;
 app.use(express.urlencoded({ extended: true }));
 // set view engine
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 app.get('/', (request, response) => {
   console.log(request.query); // for query parameter ?q=xxx
@@ -30,5 +32,5 @@ app.get('/q/:questionId', (request, response) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Come on! http://localhost:${PORT}`);
+  console.log(`Running on http://localhost:${PORT}`);
 });
