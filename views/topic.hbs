@@ -2,16 +2,16 @@
   {{> baseHead customTitle=customTitle}}
   <body>
     {{> siteHeader}}
-    {{#if oneQuestion}}
+    {{#if oneTopic}}
       <div style="background-color: rgb(241, 209, 209)">
-        <h2>{{oneQuestion.title}}</h2>
+        <h2>{{oneTopic.title}}</h2>
         <p>
-          <span>{{oneQuestion.from}} | </span>
-          <span>{{oneQuestion.createdAtText}}</span>
+          <span>{{oneTopic.from}} | </span>
+          <span>{{oneTopic.createdAtText}}</span>
         </p>
       </div>
     {{else}}
-      <p>Question not found...</p>
+      <p>Topic not found...</p>
     {{/if}}
     {{> siteFooter}}
   </body>

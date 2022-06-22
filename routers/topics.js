@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const allQuestions = [
+const allTopics = [
   {
     id: 2,
     title: 'Where can I find a luxus watch?',
@@ -20,7 +20,7 @@ const allQuestions = [
 ];
 
 router.get('/new', (request, response) => {
-  response.render('questionNew');
+  response.render('topicNew');
 });
 
 router.post('/new', (request, response) => {
@@ -29,16 +29,12 @@ router.post('/new', (request, response) => {
   response.send(`Submited Form ${title}`);
 });
 
-router.get('/:questionId', (request, response) => {
+router.get('/:topicId', (request, response) => {
   console.log(request.params);
-  const { questionId } = request.params;
-  const oneQuestion = allQuestions.find(
-    question => question.id === +questionId
-  );
-  const customTitle = !!oneQuestion
-    ? `${oneQuestion.title} | `
-    : 'Not found | ';
-  response.render('question', { oneQuestion, customTitle });
+  const { topicId } = request.params;
+  const oneTopic = allTopics.find(topic => topic.id === +topicId);
+  const customTitle = !!oneTopic ? `${oneTopic.title} | ` : 'Not found | ';
+  response.render('topic', { oneTopic, customTitle });
 });
 
 module.exports = router;

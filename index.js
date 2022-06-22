@@ -1,7 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const generalRouter = require('./routers/general');
-const questionRouter = require('./routers/questions');
+const topicsRouter = require('./routers/topics');
 
 // create app
 const app = express();
@@ -14,7 +14,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 // use routers
 app.use('/', generalRouter);
-app.use('/q', questionRouter);
+app.use('/t', topicsRouter);
 
 app.listen(PORT, () => {
   console.log(`Running on http://localhost:${PORT}`);

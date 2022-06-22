@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const allQuestions = [
+const allTopics = [
   {
     id: 2,
     title: 'Where can I find a luxus watch?',
@@ -20,7 +20,7 @@ const allQuestions = [
 ];
 
 router.get('/', (request, response) => {
-  response.render('home', { allQuestions });
+  response.render('home', { allTopics });
 });
 
 module.exports = router;

@@ -3,11 +3,11 @@
   <body>
     {{> siteHeader }}
     <div>
-      <h2>Hello QuickQuestions</h2>
-      <p>I have something to ask you...</p>
-      {{#each allQuestions}}
+      <h2>Hello Free WebBoard</h2>
+      <p>I have something to tell/ask you...</p>
+      {{#each allTopics}}
         <div style="background-color: rgb(238, 201, 201)">
-          <h4><a href="/q/{{this.id}}">{{this.title}}</a></h4>
+          <h4><a href="/t/{{this.id}}">{{this.title}}</a></h4>
           <p>
             <span>{{this.from}} | </span>
             <span>{{this.createdAt}}</span>
