@@ -7,6 +7,7 @@ const topicsRouter = require('./routers/topics');
 const app = express();
 const PORT = process.env.PORT || 8888;
 app.use(express.urlencoded({ extended: true }));
+app.use('/static', express.static('static')); // tell express to activate static folder
 
 // set view engine
 app.set('view engine', 'hbs');
