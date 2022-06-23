@@ -1,25 +1,29 @@
 const express = require('express');
+const dayjs = require('dayjs');
+const db = require('../dbs');
 
 const router = express.Router();
 
-const allTopics = [
-  {
-    id: 2,
-    title: 'Where can I find a luxus watch?',
-    from: 'Big O',
-    createdAtText: '14 Febuary 2022',
-    commentsCount: 2,
-  },
-  {
-    id: 1,
-    title: 'How much does it cost?',
-    from: 'Big Too',
-    createdAtText: '22 September 2022',
-    commentsCount: 0,
-  },
-];
+router.get('/', async (request, response) => {
+  // console.log(request.query); // to find query like '?user=abc&pw=1234'
+  let allTopics = [];
+  try {
+    // get Array of object back
+    allTopics = await db
+      .select('topic.id', 'topic.title', 'topic.from', 'topic.createdAt')
+      .count('comment.id as commentsCount')
+      .from('topic')
+      .leftJoin('comment', 'topic.id', 'comment.topicId')
+      .groupBy('topic.id')
+      .orderBy('topic.id', 'desc');
 
-router.get('/', (request, response) => {
+    allTopics = allTopics.map(topic => {
+      const createdAtText = dayjs(topic.createdAt).format('D MMM YYYY - HH:mm');
+      return { ...topic, createdAtText };
+    });
+  } catch (error) {
+    console.error(error);
+  }
   response.render('home', { allTopics });
 });
 

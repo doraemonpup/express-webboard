@@ -3,13 +3,28 @@
   <body>
     {{> siteHeader}}
     {{#if oneTopic}}
-      <div style="background-color: rgb(241, 209, 209)">
+      <div style="background-color: rgb(243, 206, 206)">
         <h2>{{oneTopic.title}}</h2>
         <p>
           <span>{{oneTopic.from}} | </span>
           <span>{{oneTopic.createdAtText}}</span>
         </p>
+        <p>{{oneTopic.content}}</p>
       </div>
+      {{#if topicComments}}
+        <h4>{{topicComments.length}} comment(s)</h4>
+      {{else}}
+        <h4>No comment</h4>
+      {{/if}}
+      {{#each topicComments}}
+        <div style="background-color:lightgray">
+          <p>
+            <span>{{this.from}} | </span>
+            <span>{{this.createdAtText}}</span>
+          </p>
+          <p>{{this.content}}</p>
+        </div>
+      {{/each}}
     {{else}}
       <p>Topic not found...</p>
     {{/if}}
