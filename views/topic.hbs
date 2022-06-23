@@ -11,6 +11,26 @@
         </p>
         <p>{{oneTopic.content}}</p>
       </div>
+      <hr>
+        <form action="/t/{{oneTopic.id}}/comment" method="post">
+        <p>
+          <textarea name="content" placeholder="What do you think?">{{values.content}}</textarea>
+        </p>
+        <p>
+          <input type="text" name="from" placeholder="From" value="{{values.from}}">
+        </p>
+        <p>
+          <input id="input-accepted" type="checkbox" name="accepted">
+          <label for="input-accepted">You don't need to read the term, only accept that</label>
+        </p>
+        <p>
+          <button type="submit">Add comment</button>
+        </p>
+        {{#if errorMessage}}
+          <p>{{errorMessage}}</p>
+        {{/if}}
+      </form>
+      <hr>
       {{#if topicComments}}
         <h4>{{topicComments.length}} comment(s)</h4>
       {{else}}

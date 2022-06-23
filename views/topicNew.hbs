@@ -3,8 +3,29 @@
   <body>
     {{> siteHeader}}
     <div>
-      <h2>New Topic</h2>
-      <p>Add a topic...</p>
+      <h2>Add a new topic</h2>
+      <p>:)</p>
+      <form action="/t/new" method="post">
+        <p>
+          <input type="text" name="title" placeholder="Title" value="{{values.title}}">
+        </p>
+        <p>
+          <textarea name="content" placeholder="Content">{{values.content}}</textarea>
+        </p>
+        <p>
+          <input type="text" name="from" placeholder="From" value="{{values.from}}">
+        </p>
+        <p>
+          <input id="input-accepted" type="checkbox" name="accepted">
+          <label for="input-accepted">You don't need to read the term, only accept that</label>
+        </p>
+        <p>
+          <button type="submit">Create new topic</button>
+        </p>
+        {{#if errorMessage}}
+          <p>{{errorMessage}}</p>
+        {{/if}}
+      </form>
     </div>
     {{> siteFooter}}
   </body>
