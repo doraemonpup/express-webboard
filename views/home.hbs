@@ -2,24 +2,26 @@
   {{> baseHead}}
   <body>
     {{> siteHeader }}
-    <div>
+    <section class="section">
+      <div class="container">
       <h2>Hello Free WebBoard</h2>
-      <p>Tell me your story or ask people some questions</p>
+      <p class="mg-bt-large">Tell me your story or ask people some questions</p>
       {{#each allTopics}}
-        <div style="background-color: rgb(238, 201, 201)">
+        <div class="box">
           <h4><a href="/t/{{this.id}}">{{this.title}}</a></h4>
           <p>
             <span>{{this.from}} | </span>
-            <span>{{this.createdAtText}}</span>
+            <span class="text-gray">{{this.createdAtText}}</span>
           </p>
           {{#if this.commentsCount}}
-            <p>{{this.commentsCount}} comment(s)</p>
+            <div>{{this.commentsCount}} comment(s)</div>
           {{else}}
-            <p>No comment yet</p>
+            <div>No comment yet</div>
           {{/if}}
         </div>
       {{/each}}
     </div>
+    </section>
     {{> siteFooter}}
   </body>
 </html>
