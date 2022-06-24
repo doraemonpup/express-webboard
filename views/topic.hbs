@@ -29,7 +29,7 @@
                 <button class="button" type="submit">Add comment</button>
               </p>
               {{#if errorMessage}}
-                <p>{{errorMessage}}</p>
+                <p class="error-message">{{errorMessage}}</p>
               {{/if}}
             </form>
             <hr>
@@ -53,5 +53,7 @@
         </div>
       </section>
     {{> siteFooter}}
+    {{> siteScrollTop}}
+    {{> siteScripts}}
   </body>
 </html>

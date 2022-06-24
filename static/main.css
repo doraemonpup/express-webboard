@@ -92,6 +92,10 @@ hr {
   color: #888888;
 }
 
+.error-message {
+  color: red;
+}
+
 .section {
   padding: 30px 15px;
   min-height: calc(100vh - 100px);
@@ -196,4 +200,24 @@ textarea:focus {
   border-top: 1px solid rgb(150, 150, 150);
   text-align: center;
   padding: 10px;
+}
+
+/* Site scroll top */
+.site-scroll-top {
+  color: #888888;
+  background-color: white;
+  border: 1px solid #888888;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
 }
