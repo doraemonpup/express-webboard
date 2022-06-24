@@ -2,52 +2,56 @@
   {{> baseHead customTitle=customTitle}}
   <body>
     {{> siteHeader}}
-    {{#if oneTopic}}
-      <div style="background-color: rgb(243, 206, 206)">
-        <h2>{{oneTopic.title}}</h2>
-        <p>
-          <span>{{oneTopic.from}} | </span>
-          <span>{{oneTopic.createdAtText}}</span>
-        </p>
-        <p>{{oneTopic.content}}</p>
-      </div>
-      <hr>
-        <form action="/t/{{oneTopic.id}}/comment" method="post">
-        <p>
-          <textarea name="content" placeholder="What do you think?">{{values.content}}</textarea>
-        </p>
-        <p>
-          <input type="text" name="from" placeholder="From" value="{{values.from}}">
-        </p>
-        <p>
-          <input id="input-accepted" type="checkbox" name="accepted">
-          <label for="input-accepted">You don't need to read the term, only accept that</label>
-        </p>
-        <p>
-          <button type="submit">Add comment</button>
-        </p>
-        {{#if errorMessage}}
-          <p>{{errorMessage}}</p>
-        {{/if}}
-      </form>
-      <hr>
-      {{#if topicComments}}
-        <h4>{{topicComments.length}} comment(s)</h4>
-      {{else}}
-        <h4>No comment</h4>
-      {{/if}}
-      {{#each topicComments}}
-        <div style="background-color:lightgray">
-          <p>
-            <span>{{this.from}} | </span>
-            <span>{{this.createdAtText}}</span>
-          </p>
-          <p>{{this.content}}</p>
+      <section class="section">
+        <div class="container">
+          {{#if oneTopic}}
+            <div class="box">
+              <h2>{{oneTopic.title}}</h2>
+              <p>
+                <span>{{oneTopic.from}} | </span>
+                <span class="text-gray">{{oneTopic.createdAtText}}</span>
+              </p>
+              <div>{{oneTopic.content}}</div>
+            </div>
+            <hr>
+            <form action="/t/{{oneTopic.id}}/comment" method="post">
+              <p>
+                <textarea name="content" placeholder="What do you think?" rows="3">{{values.content}}</textarea>
+              </p>
+              <p>
+                <input type="text" name="from" placeholder="From" value="{{values.from}}">
+              </p>
+              <p>
+                <input id="input-accepted" type="checkbox" name="accepted">
+                <label for="input-accepted">You don't need to read the term, only accept that</label>
+              </p>
+              <p>
+                <button class="button" type="submit">Add comment</button>
+              </p>
+              {{#if errorMessage}}
+                <p>{{errorMessage}}</p>
+              {{/if}}
+            </form>
+            <hr>
+            {{#if topicComments}}
+              <h4>{{topicComments.length}} comment(s)</h4>
+            {{else}}
+              <h4>No comment</h4>
+            {{/if}}
+            {{#each topicComments}}
+            <div class="box">
+              <p>
+                <span>{{this.from}} | </span>
+                <span class="text-gray">{{this.createdAtText}}</span>
+              </p>
+              <div>{{this.content}}</div>
+            </div>
+          {{/each}}
+          {{else}}
+            <p>Topic not found...</p>
+          {{/if}}
         </div>
-      {{/each}}
-    {{else}}
-      <p>Topic not found...</p>
-    {{/if}}
+      </section>
     {{> siteFooter}}
   </body>
 </html>
