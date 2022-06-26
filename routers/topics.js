@@ -19,7 +19,7 @@ router.post('/new', async (request, response) => {
       throw new Error('accepted not checked');
     }
 
-    // Create topic
+    // Create topic in DB
     await db
       .insert({ title, content, from, createdAt: new Date() })
       .into('topic');
