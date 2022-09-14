@@ -8,7 +8,7 @@
             <div class="box">
               <h2>{{oneTopic.title}}</h2>
               <p>
-                <span>{{oneTopic.from}} | </span>
+                <span>From {{oneTopic.from}} | </span>
                 <span class="text-gray">{{oneTopic.createdAtText}}</span>
               </p>
               <div>{{oneTopic.content}}</div>
@@ -41,7 +41,7 @@
             {{#each topicComments}}
             <div class="box">
               <p>
-                <span>{{this.from}} | </span>
+                <span>From {{this.from}} | </span>
                 <span class="text-gray">{{this.createdAtText}}</span>
               </p>
               <div>{{this.content}}</div>
