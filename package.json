@@ -11,15 +11,15 @@
   "author": "Chunhawit",
   "license": "ISC",
   "dependencies": {
-    "dayjs": "^1.11.5",
-    "dotenv": "^16.0.2",
+    "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
     "express": "^5.0.0-beta.1",
     "hbs": "^4.2.0",
     "knex": "^2.3.0",
     "mysql2": "^2.3.3"
   },
   "devDependencies": {
-    "@types/node": "^18.7.18",
+    "@types/node": "^18.11.15",
     "nodemon": "^2.0.20"
   }
 }
