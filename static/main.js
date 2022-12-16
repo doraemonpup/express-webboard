@@ -1,5 +1,3 @@
-console.log('Hola Hola');
-
 const siteScrollTop = document.querySelector('.site-scroll-top');
 
 function scrollTop() {
