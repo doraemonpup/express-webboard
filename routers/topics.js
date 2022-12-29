@@ -1,6 +1,7 @@
 const express = require('express');
 const dayjs = require('dayjs');
 const db = require('../dbs');
+const formatDistanceToNow = require('date-fns/formatDistanceToNow');
 
 const router = express.Router();
 
@@ -94,14 +95,14 @@ async function getTopicAndComments(topicId) {
   let topicComments = [];
   try {
     // Get one topic
-    const someTopics = await db
-      .select('*')
-      .from('topic')
-      .where('id', +topicId);
+    const someTopics = await db.select('*').from('topic').where('id', +topicId);
     oneTopic = someTopics[0]; // because we always get an array back, although only 1 topic
-    oneTopic.createdAtText = dayjs(oneTopic.createdAt).format(
-      'D MMM YYYY - HH:mm'
-    );
+    // oneTopic.createdAtText = dayjs(oneTopic.createdAt).format(
+    //   'D MMM YYYY - HH:mm'
+    // );
+    oneTopic.createdAtText = formatDistanceToNow(new Date(oneTopic.createdAt), {
+      addSuffix: true,
+    });
 
     // Get topic comments
     topicComments = await db
@@ -110,9 +111,12 @@ async function getTopicAndComments(topicId) {
       .where('topicId', +topicId);
 
     topicComments = topicComments.map(comment => {
-      const createdAtText = dayjs(comment.createdAt).format(
-        'D MMM YYYY - HH:mm'
-      );
+      // const createdAtText = dayjs(comment.createdAt).format(
+      //   'D MMM YYYY - HH:mm'
+      // );
+      const createdAtText = formatDistanceToNow(new Date(comment.createdAt), {
+        addSuffix: true,
+      });
       return { ...comment, createdAtText };
     });
   } catch (error) {}

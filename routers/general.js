@@ -1,6 +1,7 @@
 const express = require('express');
 const dayjs = require('dayjs');
 const db = require('../dbs');
+const formatDistanceToNow = require('date-fns/formatDistanceToNow');
 
 const router = express.Router();
 
@@ -18,7 +19,10 @@ router.get('/', async (request, response) => {
       .orderBy('topic.id', 'desc');
 
     allTopics = allTopics.map(topic => {
-      const createdAtText = dayjs(topic.createdAt).format('D MMM YYYY - HH:mm');
+      // const createdAtText = dayjs(topic.createdAt).format('D MMM YYYY - HH:mm');
+      const createdAtText = formatDistanceToNow(new Date(topic.createdAt), {
+        addSuffix: true,
+      });
       return { ...topic, createdAtText };
     });
   } catch (error) {
