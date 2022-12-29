@@ -39,7 +39,7 @@ router.post('/new', async (request, response) => {
     });
   }
   // if no error -> redirect to Done page
-  response.redirect('/t/new/done');
+  response.redirect('/topics/new/done');
 });
 
 router.get('/new/done', (request, response) => {
@@ -87,7 +87,7 @@ router.post('/:topicId/comment', async (request, response) => {
     });
   }
   // if no error -> redirect to Done page
-  response.redirect(`/t/${topicId}`);
+  response.redirect(`/topics/${topicId}`);
 });
 
 async function getTopicAndComments(topicId) {

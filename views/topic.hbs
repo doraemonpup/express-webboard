@@ -14,7 +14,7 @@
               <div>{{oneTopic.content}}</div>
             </div>
             <hr>
-            <form action="/t/{{oneTopic.id}}/comment" method="post">
+            <form action="/topics/{{oneTopic.id}}/comment" method="post">
               <p>
                 <textarea name="content" placeholder="What do you think?" rows="3">{{values.content}}</textarea>
               </p>

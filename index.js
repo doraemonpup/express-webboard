@@ -18,7 +18,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 // use routers
 app.use('/', generalRouter);
-app.use('/t', topicsRouter);
+app.use('/topics', topicsRouter);
 
 app.listen(PORT, () => {
   console.log(`Running on http://localhost:${PORT}`);
