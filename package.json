@@ -16,7 +16,7 @@
     "dotenv": "^16.0.3",
     "express": "^5.0.0-beta.1",
     "hbs": "^4.2.0",
-    "knex": "^2.3.0",
+    "knex": "^2.4.0",
     "mysql2": "^2.3.3"
   },
   "devDependencies": {
