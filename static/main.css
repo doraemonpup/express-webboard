@@ -76,7 +76,7 @@ p {
 }
 
 a {
-  color: rgb(21, 156, 21);
+  color: rgb(103, 146, 137);
 }
 
 hr {
@@ -135,14 +135,14 @@ input[type='text'] {
 
 input[type='text']:focus,
 textarea:focus {
-  border-color: rgb(21, 156, 21);
+  border-color: rgb(103, 146, 137);
 }
 
 .button {
   appearance: none;
   color: white;
-  background-color: rgb(21, 156, 21);
-  border: 1px solid rgb(21, 156, 21);
+  background-color: rgb(103, 146, 137);
+  border: 1px solid rgb(103, 146, 137);
   border-radius: 8px;
   text-decoration: none;
   display: inline-block;
@@ -152,14 +152,14 @@ textarea:focus {
 }
 
 .button.button-outlined {
-  color: rgb(21, 156, 21);
+  color: rgb(103, 146, 137);
   background-color: white;
 }
 
 .button:hover {
   color: white;
-  background-color: rgb(9, 110, 9);
-  border-color: rgb(9, 110, 9);
+  background-color: rgb(29, 120, 116);
+  border-color: rgb(29, 120, 116);
 }
 
 /* Header */
@@ -189,7 +189,7 @@ textarea:focus {
 }
 
 .site-header-logo span {
-  color: #111111;
+  color: rgb(29, 120, 116);
   font-size: 16px;
   font-weight: 600;
 }
